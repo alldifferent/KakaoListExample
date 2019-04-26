@@ -1,9 +1,12 @@
 package com.example.kakaolistexample;
 
+import android.app.Activity;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 
+import com.example.kakaolistexample.adapters.KakaoAdapter;
 import com.example.kakaolistexample.databinding.ActivityMainBinding;
 import com.example.kakaolistexample.datas.KakaoChat;
 
@@ -16,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding act;
     List<KakaoChat> kakaoList = new ArrayList<>();
+    KakaoAdapter kakaoAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void setValues(){
+
+        kakaoAdapter = new KakaoAdapter(MainActivity.this, kakaoList);
+        act.chatList.setAdapter(kakaoAdapter);
 
     }
 
